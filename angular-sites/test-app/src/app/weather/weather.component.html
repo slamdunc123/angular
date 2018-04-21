@@ -1,0 +1,19 @@
+<p>
+  weather works!
+</p>
+
+<button class="button" (click)="getWeather()">Get Weather</button>
+
+<!--<div *ngFor="let r of res">
+  <p>{{r | json}}</p>
+
+</div>-->
+
+<div>{{posts | json}}</div>
+
+<div *ngFor="let post of posts.list">
+  <h2>
+      {{post.dt}} - {{post.main.humidity}}
+    </h2>
+</div>
+

@@ -1,0 +1,19 @@
+<p>
+  department-detail works!
+</p>
+
+<h3>You selected department with id = {{departmentId}}</h3><!--Tutorial 25 - ROUTE PARAMETERS-->
+
+<p>
+  <button (click)="showOverview()">Overview</button>
+  <button (click)="showContact()">Contact</button>
+</p>
+
+<router-outlet></router-outlet><!--Tutorial 29 - CHILD ROUTES-->
+
+<a (click)="goPrevious()">Previous</a><!--Tutorial 26 - PARAMMAP OBSERVABLE-->
+<a (click)="goNext()">Next</a>
+<!--Tutorial 27 - OPTIONAL ROUTE PARAMETERS-->
+<div>
+  <button (click)="gotoDepartments()">Back</button>
+</div>

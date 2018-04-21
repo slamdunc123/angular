@@ -1,0 +1,42 @@
+<div class="container">
+
+  <p>
+    contact works! {{citySelector}}
+  </p>
+  <!--TODO: This uses hard-coded dropdown values but needs to load them on the fly - the cities.component tries to do this but needs work-->
+<h4>FIXME</h4> <span style="color:red">Not working correctly as should be able to select 10 x cities from the dropdown but only the hard-coded Chesterfield comes through. You then have to click below Chesterfield and then back on it again to bring the other cities through from the service. Al the city's weather details are then displayed. </span>
+
+<!--FIXME: solution needed to fix dropdown issues - need to click off and on Chesterfield to load other cities-->
+<!--REVIEW: same as weather.component.html except this loops through a .json file in cities.service.ts-->
+  
+  <div class="city-selector">
+      <h5>Select A City:</h5>
+      <select [(ngModel)]="citySelector" (click)="getWeather(citySelector)" >
+        <option [ngValue]="7290669">Chesterfield</option>
+        <option *ngFor="let cityData of citiesData" [ngValue]="cityData.id"><h2>{{cityData.name}}</h2></option>
+      
+      </select>
+      <br><br>
+  </div>
+  
+  <!--<div>{{posts | json}}</div>--> <!--presents all the json data in posts-->
+  <div>
+
+    <br>
+      <h5>City: {{posts.city.name}}</h5>
+      <h5>Country: {{posts.city.country}}</h5>
+      <h5>Coordinates: {{posts.city.coord.lon}} : lon, {{posts.city.coord.lat}} : lat</h5><br>
+      
+      <ul class="list-group" *ngFor="let post of posts.list">
+        <li class="list-group-item">
+            <h5>Date: {{post.dt_txt | date:'full'}}</h5>
+            <h5>Weather: {{post.weather[0].description}}</h5>
+            <h5>Temp: <span style="color:blue;">{{post.main.temp}}</span></h5>
+            <h5>Wind: {{post.wind.speed}}</h5>
+        </li>
+      </ul>
+
+    </div>
+</div>
+
+<!--<div>{{posts | json}}</div>-->

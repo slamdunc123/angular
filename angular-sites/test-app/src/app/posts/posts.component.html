@@ -1,0 +1,11 @@
+<p>
+  posts works!
+</p>
+
+<button (click)="getPosts()">Get Posts</button>
+
+<div *ngFor="let post of posts | async">
+  <p>{{post | json}}</p>
+
+</div>
+

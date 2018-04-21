@@ -1,0 +1,16 @@
+<form #frm="ngForm" (ngSubmit)="addNewItem(frm)">
+  <div class="">
+    <input type="text" name="itemName" value="" ngModel>
+    <button type="submit" name="button" class="btn btn-success">Add item</button>
+  </div>
+  <!--{{ frm.value.itemName | json }}-->
+
+</form>
+
+<button type="button" name="button" (click)="getItemsFromServiceClass()" class="btn btn-primary">Show List</button>
+
+<ul class="list-group">
+  <li *ngFor="let item of itemsReceived" class="list-group-item">
+    {{item}}
+  </li>
+</ul>

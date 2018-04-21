@@ -1,0 +1,25 @@
+<p>
+  employee-detail works!
+</p>
+
+<!--Tutorial 17 - SERVICES-->
+<hr>
+<h2>Employee Detail - using hardcoded data</h2>
+<ul *ngFor="let employee of employees">
+<li>{{employee.id}}. {{employee.name}} - {{employee.age}}</li>
+</ul>
+
+<!--Tutorial 19 - USING A SERVICE-->
+<hr>
+<h2>Employee2 Detail - using employee.service.ts</h2>
+<ul *ngFor="let employee2 of employees2">
+<li>{{employee2.id}}. {{employee2.name}} - {{employee2.age}}</li>
+</ul>
+
+<!--Tutorial 21 - FETCH DATA USING HTTP-->
+<hr>
+<h2>Employee3 Detail - using employee.service.ts with http and observable</h2>
+<h3>{{errorMsg}}</h3> <!--Tutorial 22 - HTTP ERROR HANDLING-->
+<ul *ngFor="let employee3 of employees3">
+<li>{{employee3.id}}. {{employee3.name}} - {{employee3.age}}</li>
+</ul>

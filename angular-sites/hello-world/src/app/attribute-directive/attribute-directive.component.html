@@ -1,0 +1,25 @@
+
+<p>Example 1</p>
+<div [ngStyle]="{backgroundColor:'red'}">
+  Welcome to the attribute directive example 1.
+</div>
+
+<p>Example 2</p>
+<div [ngStyle]="{backgroundColor:backgroundColor2, color:textColor2}">
+  Welcome to the attribute directive example 2.
+</div>
+
+<p>Example 3</p>
+<div [ngStyle]="{backgroundColor:getBackgroundColor(1), color:textColor3}">
+  Welcome to the attribute directive example 3.
+</div>
+
+<p>Example 4</p>
+<div [ngClass] = "'greenBackground'">
+  Welcome to the attribute directive example 4.
+</div>
+
+<p>Example 5</p>
+<div [ngClass] ="{'redBackground':errorFlag==true, 'greenBackground':errorFlag==false}">
+  Welcome to the attribute directive example 5.
+</div>

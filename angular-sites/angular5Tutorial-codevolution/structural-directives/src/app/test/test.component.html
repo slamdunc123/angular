@@ -1,0 +1,123 @@
+<p>
+  test works!
+</p>
+
+<hr>
+<h1>Tutorial 12 - STRUCTURAL DIRECTIVES - ngIf</h1><br>
+<h2 *ngIf="true">Codevolution</h2><br><!--when *ngIf is set to true, html element is present in DOM - use inspect element-->
+<h2 *ngIf="false">Codevolution</h2><br><!--when *ngIf is set to false, html element is removed from DOM - use inspect element-->
+<!--this differs form setting a css display property to none as you can still see the element in the DOM-->
+<h2 *ngIf="displayName">Codevolution</h2><br><!--the above examples have hardcoded property values, this example uses a class property value-->
+
+<!--*ngIf directive inline with block example-->
+<h2 *ngIf="displayName; else elseBlock"><!--looks at the else if the ngIf property is false, in this case the elseBlock-->
+  Codevolution
+</h2><br>
+
+<ng-template #elseBlock><!--ng-template is a container for DOM elements rendered if ngIf is false-->
+<h2>
+  Name is hidden
+</h2>
+</ng-template><br>
+
+<!--*ngIf directive in separate tag example-->
+<div *ngIf="displayName2; then thenBlock2; else elseBlock2"></div>
+
+<ng-template #thenBlock2>
+  <h2>Codevolution</h2>
+</ng-template><br>
+
+<ng-template #elseBlock2>
+  <h2>Hidden</h2>
+</ng-template><br>
+
+<hr>
+<h1>Tutorial 13 - STRUCTURAL DIRECTIVES - ngSwitch</h1><br>
+
+<div [ngSwitch]="color"><!--ngSwitch bind to class property, in this case color-->
+  <div *ngSwitchCase="'red'">You have picked the red color</div>
+  <div *ngSwitchCase="'blue'">You have picked the blue color</div>
+  <div *ngSwitchCase="'green'">You have picked the green color</div>
+  <div *ngSwitchDefault>Pick again</div><!--default if none of the other cases match-->
+</div>
+
+<hr>
+<h1>Tutorial 14 - STRUCTURAL DIRECTIVES - ngFor</h1><br>
+
+<div *ngFor="let color of colors"><!--references each item within the array variable color of array colors ie the data source for the loop-->
+  <h2>
+    {{color}}
+  </h2>
+
+</div><br>
+
+<div *ngFor="let color of colors; index as i"><!--index as i returns the index reference for each array variable color within the array colors-->
+  <h2>
+    {{i}} - {{color}}
+  </h2>
+
+</div><br>
+
+<div *ngFor="let color of colors; first as f"><!--checks for the first index in the array and returns boolean results-->
+  <h2>
+    {{f}} - {{color}}
+  </h2>
+
+</div><br>
+
+<div *ngFor="let color of colors; last as l"><!--checks for the last index in the array and returns boolean results-->
+  <h2>
+    {{l}} - {{color}}
+  </h2>
+
+</div><br>
+
+<div *ngFor="let color of colors; odd as o"><!--checks for the odd indexes in the array and returns boolean results-->
+  <h2>
+    {{o}} - {{color}}
+  </h2>
+
+</div><br>
+
+<div *ngFor="let color of colors; even as e"><!--checks for the even indexes in the array and returns boolean results-->
+  <h2>
+    {{e}} - {{color}}
+  </h2>
+
+</div><br>
+
+<hr>
+<h1>Tutorial 15 - COMPONENT INTERACTION</h1><br>
+<!--sending data from parent component to child component-->
+<h2>{{"Hello "+ parentData}}</h2><br><!--use Interpolation to display the component interaction property value being passed from parent component to child component-->
+<h2>{{"Hello "+ name}}</h2><br><!--alternative way if need to use a differnet property name within HTML property-->
+<!--sending data from child component to parent component - needs to be done through events-->
+<button (click)="fireEvent()">Send Event</button>
+
+<hr>
+<h1>Tutorial 16 - PIPES</h1>
+<h2>{{ name | lowercase }}</h2><!--use pipe to affect property - lowercase-->
+<h2>{{ name | uppercase }}</h2><!--use pipe to affect property - uppercase-->
+<h2>{{ message | titlecase }}</h2><!--use pipe to affect property - titlecase which capitalises the first letter of each work-->
+<h2>{{ name | slice:3 }}</h2><!--use pipe to affect property -  slice with argument-->
+<h2>{{ name | slice:3:5 }}</h2><!--use pipe to affect property -  slice with argument-->
+<h2>{{ person | json }}</h2><!--IMPORTANT - produces json representation of an object-->
+<h2>{{ 5.678 | number:'1.2-3' }}</h2><!--min number of whole number didgets followed by min and max number of decimal didgets-->
+<h2>{{ 5.678 | number:'3.4-5' }}</h2><!--min number of whole number didgets followed by min and max number of decimal didgets-->
+<h2>{{ 5.678 | number:'3.1-2' }}</h2><!--min number of whole number didgets followed by min and max number of decimal didgets-->
+<h2>{{ 0.25 | percent }}</h2><!--converts value to a percentage-->
+<h2>{{ 0.25 | currency }}</h2><!-- default currency is US Dollar $-->
+<h2>{{ 0.25 | currency: 'GBP' }}</h2><!--add argument to change to currency of choice - GBP £-->
+<!--use ISO currency codes to get correct codes-->
+<h2>{{ date }}</h2> 
+<h2>{{ date | date:'short' }}</h2><!--various date formats passing property through a pipe-->
+<h2>{{ date | date:'shortDate' }}</h2>
+<h2>{{ date | date:'shortTime' }}</h2>
+<h2>{{ date | date:'medium' }}</h2>
+<h2>{{ date | date:'mediumDate' }}</h2>
+<h2>{{ date | date:'mediumTime' }}</h2>
+<h2>{{ date | date:'long' }}</h2>
+<h2>{{ date | date:'longDate' }}</h2>
+<h2>{{ date | date:'longTime' }}</h2>
+
+

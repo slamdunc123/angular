@@ -1,0 +1,70 @@
+<p>
+  test works!
+</p>
+
+
+<hr>
+<h1>Tutorial 5 - INTERPOLATION</h1>
+<h2>Welcome {{name}}</h2>
+<h2>{{2+2}}</h2>
+<h2>{{"Welcome " + name}}</h2>
+<h2>{{name.length}}</h2>
+<h2>{{name.toUpperCase()}}</h2>
+<h2>{{greetUser()}}</h2>
+<h2>{{siteUrl}}</h2>
+
+<hr>
+<h1>Tutorial 6 - PROPERTY BINDING</h1><br>
+<input [id]="myId" type="text" value="Vishwas"><br><!--use this as not restricted to string values ie can use numbers, booleans etc.-->
+<input [disabled]="false" [id]="myId" type="text" value="Vishwas"><br><!--changing disabled from true to false changes the input field property as expected-->
+<input id="{{myId}}" type="text" value="Vishwas"><br><!--only works with string values-->
+<input disabled="false" id="{{myId}}" type="text" value="Vishwas"><br><!--changing disabled from true to false still leaves the input disabled-->
+<input [disabled]="isDisabled" [id]="myId" type="text" value="Vishwas"><br><!--use a class property instead of hardcoding true or false-->
+<input bind-disabled="isDisabled" [id]="myId" type="text" value="Vishwas"><br><!--alternative way of writing property binding-->
+
+<hr>
+<h1>Tutorial 7 - CLASS BINDING</h1><br>
+<h2 class="text-success">Codevolution</h2><br><!--hardcoded class assignment-->
+<h2 [class]="successClass">Codevolution</h2><br><!--binding to a class property-->
+<h2 class="text-special" [class]="successClass">Codevolution</h2><br><!--the regular class doesn't work if class binding is also preseent-->
+<h2 [class.text-special]="true">Codevolution</h2><br><!--hardcoded boolean option: false or true-->
+<h2 [class.text-danger]="hasError">Codevolution</h2><br><!--binding to class property-->
+<h2 [ngClass]="messageClasses">Codevolution</h2><br><!--binding to more than one class property using ngClass-->
+
+<hr>
+<h1>Tutorial 8 - STYLE BINDING</h1><br>
+<h2 [style.color]="'orange'">Style Binding</h2><br><!--hardcoding the style.color element-->
+<h2 [style.color]="hasError ? 'red' : 'green'">Style Binding</h2><br><!--adding a condition-->
+<h2 [style.color]="highlightColor">Style Binding 2</h2><br><!--style.color takes value from class property-->
+<h2 [ngStyle]="titleStyles">Style Binding 3</h2><br><!--binding to more than one style property using ngStyle-->
+
+<hr>
+<h1>Tutorial 9 - EVENT BINDING</h1><br>
+<button (click)="onClick()">Greet</button><br><!--when button click event happens, onClick() method is executed-->
+{{greeting}}<br><!--using Interpolation to bind to class property-->
+<button (click)="onClick2($event)">Greet2</button><br><!--use $event parameter to get access to the properties of the DOM event, in this case the click event-->
+{{greeting2}}<br><!--using Interpolation to bind to class property-->
+<button (click)="greeting3='Welcome Vishwas'">Greet3</button><br><!--using a template statement instead of an event handler-->
+{{greeting3}}<br>
+
+<hr>
+<h1>Tutorial 10 - TEMPLATE REFERENCE VARIABLES</h1><br>
+<input #myInput type="text"><!--create template reference variable #myInput-->
+<button (click)="logMessage(myInput.value)">Log</button><br><!--pass template reference variable property into method-->
+{{msgValue}}<br>
+
+<hr>
+<h1>Tutorial 11 - TWO WAY BINDING</h1><br>
+<!--NOTE - don't forget to import FormsModule into the app.modules.ts file - ngModel isn't recognised otherwise-->
+<input [(ngModel)]="name" type="text"><br><!--[] for property binding for data flow from the class to the template and () for event binding from template to the class - hence two way binding using ngModel-->
+{{name}}<br>
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,30 @@
+<h5>This is a *ngIf Directive</h5>
+
+<p *ngIf="errorCode==='ER01';else noErrorCode">
+  <span style="background-color:red">
+  There was an error while getting response from the server.
+</span>
+</p>
+<ng-template #noErrorCode>
+  <span style="background-color: green; color: white">
+    There are no errors in serving the request.
+  </span>
+</ng-template>
+
+<h5>This is a *ngFor Directive</h5>
+
+<p>
+  Your item list:
+</p>
+<br>
+<table>
+  <tr>
+    <th>Item Name</th>
+    <th>Description</th>
+  </tr>
+  <tr *ngFor="let item of itemList">
+    <td>{{item.name}}</td>
+    <td>{{item.description}}</td>
+  </tr>
+</table>
+

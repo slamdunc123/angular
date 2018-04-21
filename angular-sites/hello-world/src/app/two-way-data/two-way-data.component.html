@@ -1,0 +1,13 @@
+<label>Type something ...</label>
+<br>
+<input type="text" (input) = "onTypingMessage($event)">
+<br>
+<h5>You are typing: {{message}}</h5>
+
+<h5>alternatively using ngModel to do the same thing as above</h5>
+
+<label>Type something else ...</label>
+<br>
+<input type="text" [(ngModel)] = 'message2'>
+<br>
+<h5>You are typing another: {{message2}}</h5>

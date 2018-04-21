@@ -1,0 +1,32 @@
+<h3>Hard coded example:</h3>
+<h5>I am Component, First Component</h5>
+<br>
+<h3>Type 1 - Interpolation (one way data binding - component to DOM) example:</h3>
+<h5>{{headingTwo}}</h5>
+<h5>1+1={{1+1}}</h5>
+<h5>{{returnString()}}</h5>
+<br>
+<br>
+<h3>Type 2 - Property Binding (one way data binding - component to DOM) example:</h3>
+<hr>
+<h5>Hard coded example:</h5>
+<img src="../../assets/lion-silver - 150x150.png" alt="">
+<br>
+<h5>Property Binding example:</h5>
+<img [src]="imageUrl" alt="">
+<br>
+<br>
+<h3>Type 3 - Event Binding (one way data binding - DOM to component) example</h3>
+<br>
+<h5>{{headingTwo}}</h5>
+<br>
+<button type="button" name="button" (click) = "changeValue()">Change Value</button>
+<br>
+<br>
+<h3>Type 4 - 2 Way Data Binding (DOM to component - component to DOM) example</h3>
+<app-gotcharacter></app-gotcharacter>
+
+<h3>Passing data from parent to child component using proerty binding.</h3>
+<app-gotcharacter [imageUrlChild]="imageUrl"></app-gotcharacter>
+
+

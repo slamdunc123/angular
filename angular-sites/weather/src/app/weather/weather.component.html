@@ -1,0 +1,35 @@
+<div class="container">
+
+  <p>
+    weather works! {{ citySelector }}
+  </p>
+
+  <div class="city-selector">
+    <h5>Select A City:</h5>
+    <select [(ngModel)]="citySelector" (click)="getWeather(citySelector)" name="" id="">
+      <option [value]="7299873">Maulden</option>
+      <option [value]="7290669">Chesterfield</option>
+      <option [value]="2634275">Westruther</option>
+    </select>
+    
+  </div>
+<!--<div>{{posts | json}}</div>--> <!--presents all the json data in posts-->
+  <div>
+
+    <br>
+      <h5>City: {{posts.city.name}}</h5>
+      <h5>Country: {{posts.city.country}}</h5>
+      <h5>Coordinates: {{posts.city.coord.lon}} : lon, {{posts.city.coord.lat}} : lat</h5><br>
+      
+      <ul class="list-group" *ngFor="let post of posts.list">
+        <li class="list-group-item">
+            <h5>Date: {{post.dt_txt | date:'full'}}</h5>
+            <h5>Weather: {{post.weather[0].description}}</h5>
+            <h5>Temp: <span style="color:blue;">{{post.main.temp}}</span></h5>
+            <h5>Wind: {{post.wind.speed}}</h5>
+        </li>
+      </ul>
+
+    </div>
+
+</div>
