@@ -1,31 +1,46 @@
 <div class="container">
 
-  <p>
+  <!-- <p>
     weather works! {{ citySelector }}
-  </p>
-
-  <div class="city-selector">
+  </p> -->
+  <br>
+  <div class="alert alert-success">
     <h5>Select A City:</h5>
     <select [(ngModel)]="citySelector" (click)="getWeather(citySelector)" name="" id="">
-      <option [value]="7299873">Maulden</option>
-      <option [value]="7290669">Chesterfield</option>
-      <option [value]="2634275">Westruther</option>
+      <option [value]="2655984">Belfast</option>
+      <option [value]="3333125">Birmingham</option>
+      <option [value]="2653822">Cardiff</option>
+      <option [value]="7290669">Chesterfield</option>      
+      <option [value]="7778677">Dublin</option>
+      <option [value]="3333229">Edinburgh</option>
+      <option [value]="3333231">Glasgow</option>
+      <option [value]="3333167">Liverpool</option> 
+      <option [value]="2648110">London</option>     
+      <option [value]="3333169">Manchester</option>      
+      <option [value]="3333193">Sheffield</option>     
     </select>
     
   </div>
 <!--<div>{{posts | json}}</div>--> <!--presents all the json data in posts-->
-  <div>
 
-    <br>
-      <h5>City: {{posts.city.name}}</h5>
-      <h5>Country: {{posts.city.country}}</h5>
-      <h5>Coordinates: {{posts.city.coord.lon}} : lon, {{posts.city.coord.lat}} : lat</h5><br>
-      
+  <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+    <div class="card-header">Your City</div>
+    <div class="card-body">
+      <h5 class="card-title">City:  <span style="font-weight: bold;">{{posts.city.name}}</span></h5>
+      <!-- <p class="card-text"> -->
+         <h5>Id: <span style="font-weight: bold;">{{posts.city.id}}</span></h5>
+         <h5>Country: <span style="font-weight: bold;">{{posts.city.country}}</span></h5>
+          <h5>Coordinates: <span style="font-weight: bold;">{{posts.city.coord.lon}} : lon, {{posts.city.coord.lat}} : lat</span></h5><br>
+      <!-- </p> -->
+    </div>
+  </div>
+  
+  <div>
       <ul class="list-group" *ngFor="let post of posts.list">
-        <li class="list-group-item">
+        <li class="list-group-item list-group-item-action list-group-item-light">
             <h5>Date: {{post.dt_txt | date:'full'}}</h5>
             <h5>Weather: {{post.weather[0].description}}</h5>
-            <h5>Temp: <span style="color:blue;">{{post.main.temp}}</span></h5>
+            <h5>Temp: <span style="color:blue;">{{post.main.temp - 273.15 | number}}</span></h5>
             <h5>Wind: {{post.wind.speed}}</h5>
         </li>
       </ul>
